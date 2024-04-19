@@ -4,8 +4,52 @@
     <meta charset="UTF-8">
     <title>AI Blog Generator</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .lds-circle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh; /* Adjust height as needed */
+}
+        .lds-circle {
+  /* change color here */
+  color: #7557a2
+}
+.lds-circle,
+.lds-circle div {
+  box-sizing: border-box;
+}
+.lds-circle {
+  display: inline-block;
+  transform: translateZ(1px);
+}
+.lds-circle > div {
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  background: currentColor;
+  border-radius: 50%;
+  animation: lds-circle 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+@keyframes lds-circle {
+  0%, 100% {
+    animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+  }
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(1800deg);
+    animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+  }
+  100% {
+    transform: rotateY(3600deg);
+  }
+}
+    </style>
 </head>
-<body>
+<body class="flex flex-col nin-h-screen bg-gray-100 font-sans antialised">
 
     <nav class="bg-blue-600 p-4 text-white flex justify-between">
         <div>
@@ -13,7 +57,56 @@
                 AI Blog Generator
             </h1>
         </div>
-         
+        <div>
+            <a href="#" class="text-white hover:underline">Logout</a>
+        </div>
     </nav>
+
+    <br>
+    <br>
+
+<!-- Main-->
+    <div class="flex-grow container mx-auto mt-10 px-4 sm:px-0">
+        <div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md transition-transform transform hover:scale-105 flex flex-col">
+            <!-- INTRODUCTION -->
+            <div class="text-center">
+                <h2 class="text-2xl font-semibold mb-4">Welcome to the AI Blog Generator</h2>
+                <p class="text-gray-700">
+                    Generate High quality blog articles from Youtube Videos Using AI.
+                    Simply the link of the Youtube Video below and let the AI do it's magic.
+                </p>
+            </div>
+            
+            <br>
+            <div>
+                <h2 class="text-xl mb-4 font-semibold">Enter Youtube Video Link</h2>
+                <div class="flex space-x-4">
+                    <input id="Youtube Link" type="url" placeholder="Paste Youtube Link..." class="flex-grow p-2 border border-yellow-400 rounded-l-md">
+                    <button id="generatedBlogButton" class="bg-blue-600 text-white px-4 rounded-r-md hover:bg-blue-700 transition-colors"> Generate </button>
+                </div>
+            </div>
+            <!-- section for loading circle -->
+                <div style="display: none;" id="loadingCircle" class="lds-circle-container">
+                    <div class="lds-circle">
+                      <div></div>
+                    </div>
+                  </div>
+            <!-- Generated Blog Display Section -->
+        <section class="mt-10 flex-grow">
+            <h2 class="text-xl mb-4 font-semibold">Generated Blog Article</h2>
+            <div id="blogContent" class="mt-2 text-gray-700 space-y-4">
+                
+            </div>
+        </section>
+        
+        </div>
+    </div>
+    <footer class="text-center p-4 text-black mt-6">
+        Powered By <a href="https://github.com/AmbujSE">AmbujSE</a>
+    </footer>
+
+    <script>
+
+    </script>
 </body>
 </html>
