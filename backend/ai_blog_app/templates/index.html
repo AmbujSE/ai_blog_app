@@ -106,12 +106,10 @@
 
 
             const youtubeLink = document.getElementById('youtubeLink').value;
-            const loadingIndicator = document.getElementById('loading-circle');
             const blogContent = document.getElementById('blogContent');
 
             if(youtubeLink) {
                 document.getElementById('loading-circle').style.display = 'block';
-                loadingIndicator.classList.remove('hidden');
 
                 blogContent.innerHTML = ''; // Clear previous content
 
@@ -133,7 +131,6 @@
                 } catch (error) {
                     console.error("Error occurred:", error);
                     alert("Something went wrong. Please try again later.");
-                    loadingIndicator.classList.add('hidden');
                 }
                 document.getElementById('loading-circle').style.display = 'none';
             } else {
@@ -143,3 +140,4 @@
     </script>
 </body>
 </html>
+
